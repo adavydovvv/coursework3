@@ -1,4 +1,3 @@
 package task3;
-
-public class BaseTests {
+public class BaseTests{
 }

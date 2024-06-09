@@ -10,6 +10,7 @@ public class BasePage {
     protected WebDriver driver;
     TestPropertiesManager testPropertiesManager = TestPropertiesManager.getInstance();
     protected PageManager pageManager = PageManager.getInstance();
+    protected DriverManager driverManager = DriverManager.getInstance();
 
     public BasePage() {
         driver = DriverManager.getInstance().getDriver();

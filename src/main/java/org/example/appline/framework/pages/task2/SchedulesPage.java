@@ -1,6 +1,7 @@
 package org.example.appline.framework.pages.task2;
 
 
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -14,6 +15,8 @@ public class SchedulesPage extends BasePage {
 
     public DMamiPage clickseeonsiteButton() {
         seeonsiteButton.click();
+        driverManager.switchWindow();
+        Assert.assertEquals("Новая вкладка не была открыта", 2, driverManager.seeAllPages());
         return pageManager.getdMamiPage();
     }
 
