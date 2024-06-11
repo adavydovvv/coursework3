@@ -15,7 +15,6 @@ import java.util.Locale;
 
 public class DMamiPage extends BasePage{
 
-    private String numofgroup;
 
     @FindBy(xpath = "//input[@placeholder='группа ...']")
     private WebElement inputField;

@@ -3,6 +3,8 @@ import org.example.appline.framework.pages.task1.StartPage;
 import org.example.appline.framework.pages.task2.DMamiPage;
 import org.example.appline.framework.pages.task2.HomePage;
 import org.example.appline.framework.pages.task2.SchedulesPage;
+import org.example.appline.framework.pages.task3.GamingPhonePage;
+import org.example.appline.framework.pages.task3.MainPage;
 
 public class PageManager {
 
@@ -11,6 +13,9 @@ public class PageManager {
     private HomePage startPage2;
     private SchedulesPage schedulesPage;
     private DMamiPage dmamiPage;
+    private MainPage mainPage;
+    private GamingPhonePage gamingPhonePage;
+
 
     private PageManager() {
         // Приватный конструктор, чтобы предотвратить создание экземпляров класса извне
@@ -47,5 +52,17 @@ public class PageManager {
             dmamiPage = new DMamiPage();
         }
         return dmamiPage;
+    }
+    public MainPage getMainPage() {
+        if (mainPage == null) {
+            mainPage = new MainPage();
+        }
+        return mainPage;
+    }
+    public GamingPhonePage getGamingPhonePage() {
+        if (gamingPhonePage == null) {
+            gamingPhonePage = new GamingPhonePage();
+        }
+        return gamingPhonePage;
     }
 }
