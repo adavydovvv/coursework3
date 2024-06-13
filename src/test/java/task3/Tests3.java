@@ -8,7 +8,6 @@ import org.junit.runner.Description;
 
 public class Tests3 extends BaseTests {
 
-
     @Rule
     public TestName testName = new TestName();
 

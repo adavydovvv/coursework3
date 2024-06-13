@@ -8,4 +8,5 @@ public class PropsConst {
     public static final String PAGE_LOAD_TIMEOUT = "page.load.timeout";
     public static final String IMPLICITLY_WAIT = "implicitly.wait";
     public static final String YANDEX_URL = "yandex.url";
+    public static final String BMW_URL = "bmw.url";
 }

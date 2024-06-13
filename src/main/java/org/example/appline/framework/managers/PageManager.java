@@ -1,10 +1,12 @@
 package org.example.appline.framework.managers;
+
 import org.example.appline.framework.pages.task1.StartPage;
 import org.example.appline.framework.pages.task2.DMamiPage;
 import org.example.appline.framework.pages.task2.HomePage;
 import org.example.appline.framework.pages.task2.SchedulesPage;
 import org.example.appline.framework.pages.task3.GamingPhonePage;
 import org.example.appline.framework.pages.task3.MainPage;
+import org.example.appline.framework.pages.task4.*;
 
 public class PageManager {
 
@@ -15,7 +17,12 @@ public class PageManager {
     private DMamiPage dmamiPage;
     private MainPage mainPage;
     private GamingPhonePage gamingPhonePage;
-
+    private FirstPage firstPage;
+    private CarsPage carsPage;
+    private ConfigurationPage configurationPage;
+    private AutoWithMileagePage autoWithMileagePage;
+    private AccessoriesStartPage accessoriesStartPage;
+    private AccessoriesPage accessoriesPage;
 
     private PageManager() {
         // Приватный конструктор, чтобы предотвратить создание экземпляров класса извне
@@ -64,5 +71,41 @@ public class PageManager {
             gamingPhonePage = new GamingPhonePage();
         }
         return gamingPhonePage;
+    }
+    public FirstPage getFirstPage() {
+        if (firstPage == null) {
+            firstPage = new FirstPage();
+        }
+        return firstPage;
+    }
+    public CarsPage getCarsPage() {
+        if (carsPage == null) {
+            carsPage = new CarsPage();
+        }
+        return carsPage;
+    }
+    public ConfigurationPage getConfigurationPage() {
+        if (configurationPage == null) {
+            configurationPage = new ConfigurationPage();
+        }
+        return configurationPage;
+    }
+    public AutoWithMileagePage getAutoWithMileagePage() {
+        if (autoWithMileagePage == null) {
+            autoWithMileagePage = new AutoWithMileagePage();
+        }
+        return autoWithMileagePage;
+    }
+    public AccessoriesStartPage getAccessoriesStartPage() {
+        if (accessoriesStartPage == null) {
+            accessoriesStartPage = new AccessoriesStartPage();
+        }
+        return accessoriesStartPage;
+    }
+    public AccessoriesPage getAccessoriesPage() {
+        if (accessoriesPage == null) {
+            accessoriesPage = new AccessoriesPage();
+        }
+        return accessoriesPage;
     }
 }
