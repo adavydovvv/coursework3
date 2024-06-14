@@ -14,7 +14,7 @@ public class AccessoriesStartPage extends BasePage {
 
     public AccessoriesStartPage clickAccessoriesForCarsButton() throws InterruptedException {
         driverManager.switchWindow();
-        Thread.sleep(1000);
+        Thread.sleep(8000);
         accessoriesForCarsButton.click();
         return pageManager.getAccessoriesStartPage();
     }

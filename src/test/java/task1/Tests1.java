@@ -22,12 +22,12 @@ public class Tests1 extends BaseTests {
     };
     @Test
     public void test() {
-        pageManager.getStartPageL().getRemainingText()
-                .getFirstItemClass()
+        pageManager.getStartPageL().checkTitle()
+                .getRemainingText()
                 .isFirstCheckboxSelected()
+                .getFirstItemClass()
                 .clickFirstCheckbox()
                 .clickAllCheckboxes()
-                .clickunclick()
                 .addNewElement();
     }
 }

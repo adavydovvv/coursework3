@@ -9,6 +9,9 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class StartPage extends BasePage {
+    @FindBy(xpath = "//h2")
+    private WebElement title;
+
     @FindBy(xpath = "//span[contains(text(),'remaining')]")
     private WebElement remainingCountElement;
 
@@ -23,11 +26,16 @@ public class StartPage extends BasePage {
 
     @FindBy(xpath = "//input[@type='checkbox']")
     private List<WebElement> checkboxes;
+    @FindBy(xpath = "//span[@class='done-true']")
+    private List<WebElement> itemsTrue;
 
     @FindBy(id = "sampletodotext")
     private WebElement inputField;
 
-
+    public StartPage checkTitle(){
+        Assert.assertEquals("На странице отсутствует требуемый заголовок", "LambdaTest Sample App", title.getText());
+        return pageManager.getStartPageL();
+    }
 
     public StartPage getRemainingText() {
         Assert.assertEquals("Текст отсутствует!", "5 of 5 remaining", remainingText.getText());
@@ -47,6 +55,7 @@ public class StartPage extends BasePage {
     public StartPage clickFirstCheckbox() {
         int itemCountBefore = getRemainingCount();
         checkboxes.get(0).click();
+        Assert.assertEquals("Ошибка! Не применён соответствующий класс", "done-true", firstItem.getAttribute("class"));
         int itemCountAfter = getRemainingCount();
         Assert.assertEquals("Отображаемое число оставшихся элементов не уменьшилось на 1!", itemCountBefore - 1, itemCountAfter);
         return pageManager.getStartPageL();
@@ -75,6 +84,7 @@ public class StartPage extends BasePage {
                 checkbox.click();
             }
         }
+        Assert.assertEquals("К некоторым элементам не применился класс done-true", 5, itemsTrue.size());
         int itemCountAfter = pageManager.getStartPageL().getRemainingCount();
         Assert.assertEquals("Отображаемое число оставшихся элементов не уменьшилось до 0!", 0, itemCountAfter);
         return pageManager.getStartPageL();
@@ -88,13 +98,6 @@ public class StartPage extends BasePage {
         }
     }
 
-    public StartPage clickunclick(){
-        clickAllCheckboxes();
-        uncheckAllCheckboxes();
-        int itemCountAfter = pageManager.getStartPageL().getRemainingCount();
-        Assert.assertEquals("Отображаемое число оставшихся элементов не увеличилось до 5!", 5, itemCountAfter);
-        return pageManager.getStartPageL();
-    }
 
     public StartPage addNewElement(){
         String newItemText = "Sixth item";

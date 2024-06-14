@@ -24,7 +24,6 @@ public class Tests3 extends BaseTests {
         pageManager.getMainPage().clickOnGamingMobileButton()
                                 .infoToLogs3()
                                 .clickFilterSamsung();
-        Thread.sleep(3000);
 
     }
 }

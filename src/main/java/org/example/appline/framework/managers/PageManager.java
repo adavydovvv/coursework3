@@ -11,6 +11,8 @@ import org.example.appline.framework.pages.task4.*;
 public class PageManager {
 
     private static PageManager instance;
+
+
     private StartPage startPage;
     private HomePage startPage2;
     private SchedulesPage schedulesPage;

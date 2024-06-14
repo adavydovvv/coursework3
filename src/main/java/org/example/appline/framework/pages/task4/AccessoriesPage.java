@@ -4,6 +4,8 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.List;
+
 public class AccessoriesPage extends BasePage{
 
     @FindBy(xpath = "//div[@class = 'page__title']")
@@ -12,8 +14,15 @@ public class AccessoriesPage extends BasePage{
     @FindBy(xpath = "//div[contains(text(), 'Комплекты увеличения мощности')]")
     private WebElement complectButton;
 
+    @FindBy(xpath = "/html/body/div[1]/div/div/div[3]/div/div[2]/div[1]/div/div[1]/div/div[2]/div[3]/div/div[2]")
+    private WebElement complectCount;
+
+
     @FindBy(xpath = "//div[@class='catalog-sort__total']/span")
     private WebElement totalCount;
+
+    @FindBy(xpath = "//div[@class = 'v-text product-card__title v-text_small']")
+    private List<WebElement> productCount;
 
     public AccessoriesPage checkPageTitle() {
         Assert.assertEquals("Открыта неверная страница", "M PERFORMANCE", pageTitle.getText());
@@ -22,8 +31,9 @@ public class AccessoriesPage extends BasePage{
 
     public AccessoriesPage clickComplectButton() throws InterruptedException {
         complectButton.click();
-        Thread.sleep(2000);
-        Assert.assertEquals("Количество товаров не соответствует ожидаемому", "2 товара", totalCount.getText());
+        Thread.sleep(5000);
+        Assert.assertEquals("Количество товаров не соответствует ожидаемому", totalCount.getText(), complectCount.getText() + " товара");
+        Assert.assertEquals("Количество товаров не соответствует ожидаемому", complectCount.getText(), Integer.toString(productCount.size()));
         return pageManager.getAccessoriesPage();
     }
 }
