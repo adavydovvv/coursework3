@@ -1,6 +1,7 @@
 package org.example.appline.framework.pages.task2;
 
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,6 +14,7 @@ public class SchedulesPage extends BasePage {
     @FindBy(xpath = "//h1[contains(text(), 'Расписания')]")
     private WebElement h1;
 
+    @Step("Нажатие на кнопку Посмотреть на сайте")
     public DMamiPage clickseeonsiteButton() {
         seeonsiteButton.click();
         driverManager.switchWindow();

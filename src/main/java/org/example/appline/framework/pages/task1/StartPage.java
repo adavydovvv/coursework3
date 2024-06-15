@@ -1,6 +1,7 @@
 package org.example.appline.framework.pages.task1;
 
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -32,26 +33,31 @@ public class StartPage extends BasePage {
     @FindBy(id = "sampletodotext")
     private WebElement inputField;
 
+    @Step("Проверка заголовка")
     public StartPage checkTitle(){
         Assert.assertEquals("На странице отсутствует требуемый заголовок", "LambdaTest Sample App", title.getText());
         return pageManager.getStartPageL();
     }
 
+    @Step("Проверка наличия текста")
     public StartPage getRemainingText() {
         Assert.assertEquals("Текст отсутствует!", "5 of 5 remaining", remainingText.getText());
         return pageManager.getStartPageL();
     }
 
+    @Step("Проверка применения класса")
     public StartPage getFirstItemClass() {
         Assert.assertEquals("Ошибка! Не применён соответствующий класс", "done-false", firstItem.getAttribute("class"));
         return pageManager.getStartPageL();
     }
 
+    @Step("Проверка на выбранный чекбокс")
     public StartPage isFirstCheckboxSelected() {
         Assert.assertFalse("Чекбокс уже выбран!", checkboxes.get(0).isSelected());
         return pageManager.getStartPageL();
     }
 
+    @Step("Нажатие на первый чекбокс")
     public StartPage clickFirstCheckbox() {
         int itemCountBefore = getRemainingCount();
         checkboxes.get(0).click();
@@ -71,6 +77,7 @@ public class StartPage extends BasePage {
         newCheckbox.click();
     }
 
+    @Step("Получение класса последнего элемента")
     public String getLastItemClass() {
         return lastItem.getAttribute("class");
     }
@@ -78,6 +85,8 @@ public class StartPage extends BasePage {
         String remainingCountText = remainingCountElement.getText().split(" ")[0];
         return Integer.parseInt(remainingCountText);
     }
+
+    @Step("Нажать на все чекбоксы")
     public StartPage clickAllCheckboxes() {
         for (WebElement checkbox : checkboxes) {
             if (!checkbox.isSelected()) {
@@ -98,7 +107,7 @@ public class StartPage extends BasePage {
         }
     }
 
-
+    @Step("Добавить новый элемент")
     public StartPage addNewElement(){
         String newItemText = "Sixth item";
         addItem(newItemText);

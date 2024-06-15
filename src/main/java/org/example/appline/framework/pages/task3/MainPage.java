@@ -1,5 +1,6 @@
 package org.example.appline.framework.pages.task3;
 
+import io.qameta.allure.Step;
 import org.example.appline.framework.utils.PropsConst;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
@@ -26,6 +27,7 @@ public class MainPage extends BasePage{
         driverManager.getDriver().get(testPropertiesManager.getProperty(PropsConst.YANDEX_URL));
     }
 
+    @Step("Нажатие на кнопку Игровые телефоны")
     public GamingPhonePage clickOnGamingMobileButton() throws InterruptedException {
         catalogButton.click();
         Thread.sleep(2000);

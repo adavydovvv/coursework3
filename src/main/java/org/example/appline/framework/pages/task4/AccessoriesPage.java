@@ -14,9 +14,8 @@ public class AccessoriesPage extends BasePage{
     @FindBy(xpath = "//div[contains(text(), 'Комплекты увеличения мощности')]")
     private WebElement complectButton;
 
-    @FindBy(xpath = "/html/body/div[1]/div/div/div[3]/div/div[2]/div[1]/div/div[1]/div/div[2]/div[3]/div/div[2]")
+    @FindBy(xpath = "//div[contains(text(), 'Комплекты увеличения мощности')]/following-sibling::div[1]")
     private WebElement complectCount;
-
 
     @FindBy(xpath = "//div[@class='catalog-sort__total']/span")
     private WebElement totalCount;

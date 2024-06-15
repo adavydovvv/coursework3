@@ -1,5 +1,6 @@
 package org.example.appline.framework.pages.task4;
 
+import io.qameta.allure.Step;
 import org.junit.Assert;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
@@ -16,12 +17,13 @@ public class ConfigurationPage extends BasePage{
     @FindBy(xpath = "//a[@href='https://cars.bmw.ru/used/?brand=5ce7dad4d999da000129d87d&model=5d8dd5f1c486d30001d063fe']")
     private WebElement moreDetailButton;
 
-
+    @Step("Проверка цены")
     public ConfigurationPage checkPrice(){
         Assert.assertEquals("Открыта страница автомобиля с другой ценой!", "11 450 000 ₽", price.getText());
         return pageManager.getConfigurationPage();
     }
 
+    @Step("Нажатие на кнопку Автомобили с пробегом")
     public ConfigurationPage clickBmwWithMileageButton() throws InterruptedException {
         ((JavascriptExecutor) driverManager.getDriver()).executeScript("window.scrollBy(0,1000)");
         Thread.sleep(4000);
@@ -30,6 +32,7 @@ public class ConfigurationPage extends BasePage{
         return pageManager.getConfigurationPage();
     }
 
+    @Step("Нажатие на кнопку Больше информации")
     public AutoWithMileagePage clickMoreDetailButton(){
         moreDetailButton.click();
         return pageManager.getAutoWithMileagePage();

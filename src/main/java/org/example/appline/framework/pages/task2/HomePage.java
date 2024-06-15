@@ -1,6 +1,7 @@
 package org.example.appline.framework.pages.task2;
 
 
+import io.qameta.allure.Step;
 import org.example.appline.framework.utils.PropsConst;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
@@ -15,6 +16,7 @@ public class HomePage extends BasePage {
         driver.get(testPropertiesManager.getProperty(PropsConst.MOSPOLYTECH_URL));
     }
 
+    @Step("Нажатие на кнопку Расписание")
     public SchedulesPage clickSchedulesButton() {
         schedulesButton.click();
         Assert.assertEquals("Вы не находитесь на странице расписания", "Расписания", pageManager.getSchedulesPage().geth1());

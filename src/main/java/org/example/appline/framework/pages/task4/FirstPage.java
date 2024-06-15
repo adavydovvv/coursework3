@@ -1,5 +1,6 @@
 package org.example.appline.framework.pages.task4;
 
+import io.qameta.allure.Step;
 import org.example.appline.framework.utils.PropsConst;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
@@ -25,20 +26,28 @@ public class FirstPage extends BasePage{
     public void loadHomePage() {
         driverManager.getDriver().get(testPropertiesManager.getProperty(PropsConst.BMW_URL));
     }
+
+    @Step("Проверка заголовка")
     public FirstPage checkStartH2() throws InterruptedException {
         Assert.assertEquals("На странице отсутствует требуемая надпись", "ВСЕ МЕНЯЕТСЯ. ЦЕННОСТИ ОСТАЮТСЯ.", startH2.getText());
         return pageManager.getFirstPage();
     }
+
+    @Step("Нажатие на кнопку Автомобили")
     public CarsPage clickCarButton(){
         carButton.click();
         return pageManager.getCarsPage();
     }
+
+    @Step("Нажатие на кнопку Автомобили с пробегом")
     public AutoWithMileagePage clickAutoWMButton() throws InterruptedException {
         searchNowButton.click();
         Thread.sleep(2000);
         autoWMButton.click();
         return pageManager.getAutoWithMileagePage();
     }
+
+    @Step("Нажатие на кнопку Аксессуары")
     public AccessoriesStartPage clickAccessoriesButton() throws InterruptedException {
         searchNowButton.click();
         Thread.sleep(2000);

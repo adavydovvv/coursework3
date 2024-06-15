@@ -1,5 +1,6 @@
 package org.example.appline.framework.pages.task2;
 
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
@@ -27,6 +28,7 @@ public class DMamiPage extends BasePage{
     private WebElement clickGroup;
     private static final Logger logger = LogManager.getLogger(DMamiPage.class);
 
+    @Step("Ввод группы")
     public DMamiPage enterGroup() {
         group = "221-361";
         inputField.sendKeys(group);
@@ -34,6 +36,7 @@ public class DMamiPage extends BasePage{
         return pageManager.getdMamiPage();
     }
 
+    @Step("Нажатие на группу")
     public DMamiPage clickGroup() {
         group = "221-361";
         clickGroup = driver.findElement(By.xpath("//div[contains(text(), '" + group + "')]"));
@@ -59,6 +62,7 @@ public class DMamiPage extends BasePage{
         return dayOfWeekInRussian;
     }
 
+    @Step("Проверка цвета текущего дня")
     public DMamiPage checkOfColor(){
         try {
             WebElement todayElement = driverManager.getDriver().findElement(By.xpath("//div[contains(@class, 'schedule-day schedule-day_today')]//div[contains(@class, 'bold schedule-day__title') and text()='"+getCurrentDayOfWeek()+"']"));

@@ -1,5 +1,6 @@
 package org.example.appline.framework.pages.task4;
 
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
@@ -45,7 +46,7 @@ public class AutoWithMileagePage extends BasePage{
     private List<WebElement> prices;
 
 
-
+    @Step("Проверка на наличие других автомобилей на странице автомобиля M5 F90")
     public AutoWithMileagePage checkCarsM5(){
          for (int i = 0; i < 5 && i < names.size(); i++) {
 
@@ -58,6 +59,7 @@ public class AutoWithMileagePage extends BasePage{
          return pageManager.getAutoWithMileagePage();
      }
 
+    @Step("Выбор фильтров")
      public AutoWithMileagePage enterFiltres() throws InterruptedException {
          driverManager.switchWindow();
 
@@ -96,6 +98,7 @@ public class AutoWithMileagePage extends BasePage{
          return pageManager.getAutoWithMileagePage();
      }
 
+    @Step("Сортировка по возрастанию")
      public AutoWithMileagePage enterSort() throws InterruptedException {
          ((JavascriptExecutor) driverManager.getDriver()).executeScript("window.scrollBy(2000,0)");
          sortButton.click();

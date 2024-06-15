@@ -1,5 +1,6 @@
 package org.example.appline.framework.pages.task3;
 
+import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Assert;
@@ -13,7 +14,7 @@ public class GamingPhonePage extends BasePage{
 
     private static final Logger logger = LogManager.getLogger(GamingPhonePage.class);
 
-
+    @Step("Выведение информации в лог")
     public GamingPhonePage infoToLogs3(){
         logger.info("----------------------------------ШАГ 3 ТЕСТ КЕЙСА----------------------------------------------");
         List<WebElement> names = driverManager.getDriver().findElements(By.xpath("//h3[@class = 'G_TNq _2SUA6 _33utW _13aK2 h29Q2 _1A5yJ']"));
@@ -30,6 +31,7 @@ public class GamingPhonePage extends BasePage{
         return pageManager.getGamingPhonePage();
     }
 
+    @Step("Нажатие на кнопку Samsung в фильтрах")
     public GamingPhonePage clickFilterSamsung() throws InterruptedException {
         logger.info("----------------------------------ШАГ 4 ТЕСТ КЕЙСА----------------------------------------------");
         List<WebElement> checkboxes = driverManager.getDriver().findElements(By.xpath("//span[@class = '_3nYr7']"));
