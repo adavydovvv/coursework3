@@ -8,6 +8,7 @@ import org.junit.runner.notification.Failure;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 
+
 public class AllureListener extends AllureJunit4 {
 
     @Override
@@ -19,6 +20,6 @@ public class AllureListener extends AllureJunit4 {
 
     @Attachment(value = "screenshot", type = "image/png")
     public static byte[] addScreenshot() {
-        return ((TakesScreenshot) DriverManager.getInstance()).getScreenshotAs(OutputType.BYTES);
+        return ((TakesScreenshot) DriverManager.getInstance().getDriver()).getScreenshotAs(OutputType.BYTES);
     }
 }

@@ -12,17 +12,17 @@ public class AccessoriesStartPage extends BasePage {
     @FindBy(xpath = "//a[@href = 'catalogue/accessories/m_performance']")
     private WebElement mperformanceAccessoriesButton;
 
-    @Step("Нажатие на кнопку Акксесуары для автомобилей")
+    @Step("Нажатие на кнопку Акксесуары для автомобиля")
     public AccessoriesStartPage clickAccessoriesForCarsButton() throws InterruptedException {
         driverManager.switchWindow();
-        Thread.sleep(8000);
+        Thread.sleep(4000);
         accessoriesForCarsButton.click();
         return pageManager.getAccessoriesStartPage();
     }
 
     @Step("Нажатие на кнопку //M PERFORMANCE")
     public AccessoriesPage clickMPerformanceAccessoriesButton() throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(3000);
         mperformanceAccessoriesButton.click();
         return pageManager.getAccessoriesPage();
     }

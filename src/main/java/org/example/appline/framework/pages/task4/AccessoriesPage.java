@@ -30,7 +30,7 @@ public class AccessoriesPage extends BasePage{
 
     public AccessoriesPage clickComplectButton() throws InterruptedException {
         complectButton.click();
-        Thread.sleep(5000);
+        Thread.sleep(3000);
         Assert.assertEquals("Количество товаров не соответствует ожидаемому", totalCount.getText(), complectCount.getText() + " товара");
         Assert.assertEquals("Количество товаров не соответствует ожидаемому", complectCount.getText(), Integer.toString(productCount.size()));
         return pageManager.getAccessoriesPage();
